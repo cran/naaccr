@@ -86,6 +86,32 @@ test_that("read_naaccr can handle different versions", {
   )
 })
 
+test_that("read_naaccr can handle custom formats", {
+  sub_format <-naaccr_format_18[1:5]
+  custom_format <- rbind(
+    sub_format,
+    record_format(
+      name = c("copyRecordType", "fieldNotInFile"), item = 998:999,
+      start_col = c(1, NA), width = c(1, NA), type = "character"
+    )
+  )
+  plain <- read_naaccr(
+    input = "../data/synthetic-naaccr-18-incidence.txt", format = sub_format,
+    nrows = 10
+  )
+  custom <- read_naaccr(
+    input = "../data/synthetic-naaccr-18-incidence.txt", format = custom_format,
+    nrows = 10
+  )
+  expect_identical(plain[, sub_format[["name"]]], custom[, sub_format[["name"]]])
+  expect_identical(
+    plain[["recordType"]],
+    naaccr_factor(custom[["copyRecordType"]], field = "recordType")
+  )
+  expect_true(all(is.na(custom[["fieldNotInFile"]])))
+  expect_true(is.character(custom[["fieldNotInFile"]]))
+})
+
 test_that("read_naaccr only keeps requested columns and their flags", {
   kept <- c("nameMiddle", "rxDateHormone", "diagnosticConfirmation")
   nr <- read_naaccr(
@@ -110,7 +136,8 @@ test_that("read_naaccr only keeps requested columns and their flags", {
 test_that("read_naaccr fills in fields beyond end of lines", {
   records <- readLines("../data/synthetic-naaccr-18-incidence.txt")
   subformat <- naaccr_format_18[1:3, ]
-  shorn <- substr(records, 1, subformat[["end_col"]][2])
+  end_col <- subformat[["start_col"]] + subformat[["width"]] - 1L
+  shorn <- substr(records, 1, end_col[2])
   result <- read_naaccr(shorn, format = subformat)
   expect_true(all(is.na(result[[3]])))
 })
@@ -280,7 +307,7 @@ test_that("read_naaccr can handle a custom format", {
       name = "1 very % unusual name `",
       item = -2,
       start_col = 45, # spans two numeric fields
-      end_col = 55,
+      width = 11,
       type = "integer",
       alignment = "left",
       padding = " ",
@@ -315,4 +342,15 @@ test_that("read_naaccr reads empty files into a 0-row tabel with all columns", {
   expect_is(processed[["estrogenReceptorSummary"]], "logical")
   expect_is(processed[["secondaryDiagnosis1"]] ,"character")
   expect_is(processed[["latitude"]], "numeric")
+})
+
+test_that("The standard formats can be fetched by two- or three-digit names", {
+  two_digit <- grep("^\\d{2}$", names(naaccr_formats), value = TRUE)
+  for (td in two_digit) {
+    three_digit <- paste0(td, "0")
+    expect_identical(
+      naaccr_formats[[td]], naaccr_formats[[three_digit]],
+      info = sprintf('naaccr_formats "%s" versus "%s"', td, three_digit)
+    )
+  }
 })

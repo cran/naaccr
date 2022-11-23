@@ -7,14 +7,11 @@
 \title{Coerce to a naaccr_record dataset
 Convert objects into \code{naaccr_record} objects, if a method exists.}
 \usage{
-as.naaccr_record(x, keep_unknown = FALSE, version = NULL,
-  format = NULL, ...)
+as.naaccr_record(x, keep_unknown = FALSE, version = NULL, format = NULL, ...)
 
-\method{as.naaccr_record}{list}(x, keep_unknown = FALSE,
-  version = NULL, format = NULL, ...)
+\method{as.naaccr_record}{list}(x, keep_unknown = FALSE, version = NULL, format = NULL, ...)
 
-\method{as.naaccr_record}{data.frame}(x, keep_unknown = FALSE,
-  version = NULL, format = NULL, ...)
+\method{as.naaccr_record}{data.frame}(x, keep_unknown = FALSE, version = NULL, format = NULL, ...)
 }
 \arguments{
 \item{x}{An R object.}

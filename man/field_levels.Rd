@@ -5,8 +5,12 @@
 \alias{field_levels}
 \alias{field_levels_all}
 \title{List of possible values for a field}
-\format{A named \code{list}, where the names are for categorical fields or
-  sentinel flags, and the values are the possible levels for each field.}
+\format{
+A named \code{list}, where the names are for categorical fields or
+  sentinel flags, and the values are the possible levels for each field.
+
+An object of class \code{list} of length 322.
+}
 \usage{
 field_levels
 

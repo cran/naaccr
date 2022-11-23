@@ -1,7 +1,7 @@
 Package: naaccr
 Type: Package
 Title: Read Cancer Records in the NAACCR Format
-Version: 1.0.0
+Version: 2.0.2
 Author: Nathan Werth [aut, cre],
     Pennsylvania Department of Health [cph],
     North American Association of Cancer Registries [cph],
@@ -15,15 +15,15 @@ Description: Functions for reading cancer record files which follow a format
     (NAACCR).
 URL: https://github.com/WerthPADOH/naaccr
 BugReports: https://github.com/WerthPADOH/naaccr/issues
-Imports: data.table, stringi, utils
+Depends: R (>= 2.10)
+Imports: data.table, stringi, utils, XML
 Suggests: devtools, httr, jsonlite, magrittr, testthat, ISOcodes, xml2,
         rmarkdown, roxygen2, rvest
 License: MIT + file LICENSE
 Copyright: file COPYRIGHTS
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
 NeedsCompilation: no
-Packaged: 2019-12-12 16:30:23 UTC; nwerth
+Packaged: 2022-11-23 15:45:24 UTC; nwerth
 Repository: CRAN
-Date/Publication: 2019-12-17 12:20:05 UTC
+Date/Publication: 2022-11-23 16:30:05 UTC

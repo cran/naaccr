@@ -4,8 +4,7 @@
 \alias{naaccr_record}
 \title{Analysis-ready NAACCR records}
 \usage{
-naaccr_record(..., keep_unknown = FALSE, version = NULL,
-  format = NULL)
+naaccr_record(..., keep_unknown = FALSE, version = NULL, format = NULL)
 }
 \arguments{
 \item{...}{Arguments of the form \code{tag = value}, where \code{tag} is a
@@ -23,7 +22,8 @@ will be used.}
 \item{format}{A \code{\link{record_format}} object for parsing the records.}
 }
 \value{
-A \code{data.frame} with columns named using the NAACCR XML scheme.
+A \code{naaccr_record} with columns named using the NAACCR XML scheme.
+  It inherits from \code{data.frame}.
 }
 \description{
 Subclass of \code{data.frame} for doing analysis with NAACCR records.
