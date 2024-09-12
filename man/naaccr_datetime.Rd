@@ -4,11 +4,20 @@
 \alias{naaccr_datetime}
 \title{Parse NAACCR-formatted datetimes}
 \usage{
-naaccr_datetime(datetime)
+naaccr_datetime(datetime, tz = "")
 }
 \arguments{
-\item{datetime}{Character vector of datetimes in NAACCR format
-(\code{"YYYYMMDDHHMMSS"}).}
+\item{datetime}{Character vector of datetimes in HL7 OBR-7 format
+(\code{"YYYYMMDDHHMMSS"}) or the ISO 8601 format for datetimes accurate to
+the second (\code{YYYY-MM-DDThh:mm:ss+zz:zz}).
+Values containing a hyphen (\code{"-"}) will be assumed to follow ISO 8601,
+and other values will be assumed to follow HL7 OBR-7.}
+
+\item{tz}{time zone specification to be used for the conversion,
+    \emph{if one is required}.  System-specific (see \link[base]{time zones}),
+    but \code{""} is the current time zone, and \code{"GMT"} is UTC
+    (Universal Time, Coordinated).  Invalid values are most commonly
+    treated as UTC, on some platforms with a warning.}
 }
 \value{
 A \code{POSIXct} vector. Any incomplete or invalid datetimes are

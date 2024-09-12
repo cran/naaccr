@@ -37,11 +37,6 @@ data items.  If \code{NULL} (default), it won't be included in the XML.}
 
 \item{encoding}{String specifying the character encoding for the output file.}
 }
-\value{
-Invisibly returns the
-  \code{\link[=XMLInternalDocument-class]{XMLInternalDocument}} object which
-  was written to \code{con}.
-}
 \description{
 Write records to a NAACCR-formatted XML file
 }

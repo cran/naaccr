@@ -12,9 +12,11 @@
 \alias{naaccr_format_21}
 \alias{naaccr_format_22}
 \alias{naaccr_format_23}
+\alias{naaccr_format_24}
+\alias{naaccr_format_25}
 \title{Field definitions from all NAACCR format versions}
 \format{
-An object of class \code{list} of length 18.
+An object of class \code{list} of length 22.
 
 An object of class \code{record_format} (inherits from \code{data.table}, \code{data.frame}) with 509 rows and 12 columns.
 
@@ -33,6 +35,10 @@ An object of class \code{record_format} (inherits from \code{data.table}, \code{
 An object of class \code{record_format} (inherits from \code{data.table}, \code{data.frame}) with 810 rows and 12 columns.
 
 An object of class \code{record_format} (inherits from \code{data.table}, \code{data.frame}) with 782 rows and 12 columns.
+
+An object of class \code{record_format} (inherits from \code{data.table}, \code{data.frame}) with 783 rows and 12 columns.
+
+An object of class \code{record_format} (inherits from \code{data.table}, \code{data.frame}) with 780 rows and 12 columns.
 }
 \usage{
 naaccr_formats
@@ -54,6 +60,10 @@ naaccr_format_21
 naaccr_format_22
 
 naaccr_format_23
+
+naaccr_format_24
+
+naaccr_format_25
 }
 \description{
 See \code{\link{record_format}}.

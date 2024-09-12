@@ -193,14 +193,14 @@ test_that("as.naaccr_record creates fields with correct classes", {
   record <- as.naaccr_record(list(
     ageAtDiagnosis          = NA,
     dateOfBirth             = NA,
-    censusOccCode19702000   = NA,
+    recordType              = NA,
     estrogenReceptorSummary = NA,
     secondaryDiagnosis1     = NA,
     latitude                = NA
   ))
   expect_is(record[["ageAtDiagnosis"]], "integer")
   expect_is(record[["dateOfBirth"]], "Date")
-  expect_is(record[["censusOccCode19702000"]], "factor")
+  expect_is(record[["recordType"]], "factor")
   expect_is(record[["estrogenReceptorSummary"]], "logical")
   expect_is(record[["secondaryDiagnosis1"]] ,"character")
   expect_is(record[["latitude"]], "numeric")
@@ -327,7 +327,7 @@ test_that("read_naaccr reads empty files into a 0-row tabel with all columns", {
   on.exit(if (file.exists(tf)) file.remove(tf), add = TRUE)
   file.create(tf)
   fields <- c(
-    "ageAtDiagnosis", "dateOfBirth", "censusOccCode19702000",
+    "ageAtDiagnosis", "dateOfBirth", "recordType",
     "estrogenReceptorSummary", "secondaryDiagnosis1", "latitude"
   )
   plain <- read_naaccr_plain(tf, version = 18, keep_fields = fields)
@@ -338,10 +338,32 @@ test_that("read_naaccr reads empty files into a 0-row tabel with all columns", {
   expect_named(processed, fields)
   expect_is(processed[["ageAtDiagnosis"]], "integer")
   expect_is(processed[["dateOfBirth"]], "Date")
-  expect_is(processed[["censusOccCode19702000"]], "factor")
+  expect_is(processed[["recordType"]], "factor")
   expect_is(processed[["estrogenReceptorSummary"]], "logical")
   expect_is(processed[["secondaryDiagnosis1"]] ,"character")
   expect_is(processed[["latitude"]], "numeric")
+})
+
+test_that("All the supported NAACCR formats are exported as record_format objects", {
+  supported <- c(
+    "naaccr_format_12",
+    "naaccr_format_13",
+    "naaccr_format_14",
+    "naaccr_format_15",
+    "naaccr_format_16",
+    "naaccr_format_18",
+    "naaccr_format_21",
+    "naaccr_format_22",
+    "naaccr_format_23",
+    "naaccr_format_24"
+  )
+  exported <- getNamespaceExports("naaccr")
+  exported_fmts <- intersect(supported, exported)
+  expect_setequal(exported_fmts, supported)
+  for (fmt_name in exported_fmts) {
+    fmt <- getFromNamespace(fmt_name, ns = "naaccr")
+    expect_s3_class(fmt, "record_format")
+  }
 })
 
 test_that("The standard formats can be fetched by two- or three-digit names", {

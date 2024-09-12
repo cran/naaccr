@@ -9,7 +9,7 @@
 A named \code{list}, where the names are for categorical fields or
   sentinel flags, and the values are the possible levels for each field.
 
-An object of class \code{list} of length 322.
+An object of class \code{list} of length 340.
 }
 \usage{
 field_levels
