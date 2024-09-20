@@ -1,6 +1,6 @@
-d8bcf0bb6b5098f8397211a21a4812cb *DESCRIPTION
+157494c9e5666d3b3b1ce596f505963d *DESCRIPTION
 746790e24e3bc25cc16719d8247b9e7a *LICENSE
-5f017fb65f0ccae4befd881b42d14931 *NAMESPACE
+6da81119729362ff75aeef1541d3554d *NAMESPACE
 04216ab9c11e1e68347de5d728574af9 *NEWS
 9fa9b7e347c5c54c1a20613ea82d6c50 *R/data-item-cleaning.R
 3a3585cd3a12801088adcf95d3cb3b3f *R/data-item-interpreting.R
@@ -11,7 +11,7 @@ d8bcf0bb6b5098f8397211a21a4812cb *DESCRIPTION
 fe3355c263a2b8da455e5c5027e40da8 *R/read_naaccr.R
 ac6dd71e12588f5d224ecf34af84cd72 *R/record_format.R
 ccfc1eba6908206ae4ddddf070dd17cb *R/sysdata.rda
-2ffd4285feb849c495fe804a49f42f2e *R/write_naaccr.R
+05715d3a7ae4e3036566fcc802fc18a7 *R/write_naaccr.R
 d89822333abe558f49b7a31b7151bb36 *README.md
 b020988194f525c47abbbbd8a05cee54 *data/field_levels.RData
 57ff3f5daf4bf6b14dfbc402e719283a *inst/COPYRIGHTS
@@ -59,7 +59,7 @@ f866a420c033130d11952b507e0f5182 *tests/data/synthetic-naaccr-16-abstract.txt
 559432511d2bcd3b4ee214424a2930bf *tests/data/synthetic-naaccr-18-incidence.xml
 b393bb08f2f392df4c4717099ab4627e *tests/testthat.R
 767dc0cb6c5b560bfc29a8ae90a9f1c8 *tests/testthat/test-gis.R
-12f62cf1e4c5606f96bcd1878e4b21bc *tests/testthat/test-item-interpreting.R
+f02b444fa0c612efa59c86c9a8afe2b1 *tests/testthat/test-item-interpreting.R
 06a1f5196586ffbfac27f2d9bf3c8fbe *tests/testthat/test-naaccr_factor.R
 3c03e82785797f14d85d8b2e0111ba14 *tests/testthat/test-naaccr_record.R
 0d27682f2bcc18e6c1573aeeac558fac *tests/testthat/test-read-xml.R
